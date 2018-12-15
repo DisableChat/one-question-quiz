@@ -3,18 +3,33 @@
 using namespace std;
 
 
-char getAnswer(istream& input);
-void printResult(answer);
-void printChoices();
 void printQuestion();
+void printChoices();
+char getAnswer(istream& input);
+void printResult(char answer);
 
 int main()
 {
+  char answer;
   printQuestion();
   printChoices();
-  getAnswer(cin);
+  answer = getAnswer(cin);
+  printResult(answer);
 
   return(0);
+}
+
+void printQuestion()
+{
+  cout << "One question Quiz ;) -- " << "(Enter ABCD key to answer)" << endl;
+  cout << "A program that outputs 'Hello Word' is usually called a _______ ";
+  cout << "program\n"<< endl;
+}
+
+void printChoices()
+{
+  cout << "A) A time machine program \nB) Hello World program";
+  cout << "\nC) Calculator program \nD) None of the above" << endl;
 }
 
 char getAnswer(istream& input)
@@ -34,15 +49,16 @@ char getAnswer(istream& input)
   }
 }
 
-void printQuestion()
+void printResult(char answer)
 {
-  cout << "One question Quiz ;) -- " << "(Enter ABCD key to answer)" << endl;
-  cout << "A program that outputs 'Hello Word' is usually called a _______ ";
-  cout << "program\n"<< endl;
-}
-
-void printChoices()
-{
-  cout << "A) A time machine program \nB) Hello World program";
-  cout << "\nC) Calculator program \nD) None of the above" << endl;
+  if(answer == 'D')
+  {
+    cout << "Correct! get it? because it's Hello World not Hello Word ;)" << endl;
+  }
+  else
+  {
+    cout << "Incorrect try again!" << endl;
+    answer = getAnswer(cin);
+    printResult(answer);
+  }
 }
