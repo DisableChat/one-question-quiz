@@ -1,6 +1,6 @@
 # One Question Quiz
 answer the following question to see if you get the correct answer<br />
-*hint* pay attention
+*hint* read carefully
 
 ## How To Run
   In the terminal
