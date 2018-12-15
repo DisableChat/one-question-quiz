@@ -1,8 +1,10 @@
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 
-int getAnswer(istream& input);
+char getAnswer(istream& input);
+void printResult(answer);
 void printChoices();
 void printQuestion();
 
@@ -10,22 +12,32 @@ int main()
 {
   printQuestion();
   printChoices();
-  //getAnswer(cin);
+  getAnswer(cin);
 
   return(0);
 }
 
-int getAnswer(istream& input)
+char getAnswer(istream& input)
 {
-  string answer;
+  char answer;
+  cout << "Choice: ";
   input >> answer;
-  cout << answer;
+  answer = toupper(answer);
+  if(answer == 'A' || answer == 'B' || answer == 'C' || answer == 'D')
+  {
+    return answer;
+  }
+  else
+  {
+    cout << "Invalid choice!" << endl;
+    getAnswer(cin);
+  }
 }
 
 void printQuestion()
 {
   cout << "One question Quiz ;) -- " << "(Enter ABCD key to answer)" << endl;
-  cout << "A program that outputs 'Hello Word' is usually called a _______";
+  cout << "A program that outputs 'Hello Word' is usually called a _______ ";
   cout << "program\n"<< endl;
 }
 
